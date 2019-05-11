@@ -1,13 +1,19 @@
 <template>
   <div id="app">
+    <side-bar></side-bar>
     <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
+import SideBar from '@/components/SideBar'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    SideBar
+  },
 }
 </script>
 
