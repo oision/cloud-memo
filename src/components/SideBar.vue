@@ -11,7 +11,7 @@ export default {
           menu: [
               {
                   header: true,
-                  title: 'Memo',
+                  title: 'Memos',
               },
               {
                   title: 'My Folder',
@@ -31,3 +31,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+    .v-sidebar-menu {
+        position: relative;
+    }
+</style>

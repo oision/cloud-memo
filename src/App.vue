@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div class="app">
+      <header-bar fixed></header-bar>
       <div class="app-body">
         <side-bar fixed></side-bar>
         <main class="main">
@@ -14,11 +15,13 @@
 </template>
 
 <script>
+import HeaderBar from '@/components/HeaderBar'
 import SideBar from '@/components/SideBar'
 
 export default {
   name: 'App',
   components: {
+    HeaderBar,
     SideBar
   },
 }
@@ -31,7 +34,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 .main {
