@@ -1,8 +1,15 @@
 <template>
   <div id="app">
-    <side-bar></side-bar>
-    <img src="./assets/logo.png">
-    <router-view/>
+    <div class="app">
+      <div class="app-body">
+        <side-bar fixed></side-bar>
+        <main class="main">
+          <div class="container-fluid">
+            <router-view></router-view>
+          </div>
+        </main>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,5 +32,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.main {
+  margin-left: 250px;
 }
 </style>

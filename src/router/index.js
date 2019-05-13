@@ -2,6 +2,8 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
+import Memo from '@/components/Memo'
+import Memos from '@/components/Memos'
 
 Vue.use(Router)
 Vue.use(BootstrapVue)
@@ -14,7 +16,24 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: HelloWorld,
+    },
+    {
+      path: '/memos',
+      name: 'Memos',
+      component: {
+        render (c) { return c('router-view') }
+      },
+      children: [
+        {
+          path: '',
+          component: Memos,
+        },
+        {
+          path: 'new',
+          component: Memo,
+        },
+      ]
     },
   ]
 })

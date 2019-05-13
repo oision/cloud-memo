@@ -19,7 +19,7 @@ export default {
                   child: [
                       {
                           href: '/memos/new',
-                          title: 'new page',
+                          title: 'new memo',
                       }
                   ]
               }

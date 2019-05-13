@@ -1,17 +1,27 @@
 <template>
-    <div>
-        hello world
-    </div>
+  <div>
+      memo
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Memo',
   data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+    return {}
+  },
+  methods: {
+      init () {
+      },
+  },
+  created () {
+    this.init()
+  },
+  watch: {
+    '$route': function () {
+      this.init()
     }
-  }
+  },
 }
 </script>
 
