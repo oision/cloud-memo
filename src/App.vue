@@ -36,6 +36,11 @@ export default {
   color: #2c3e50;
 }
 
+.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
 .main {
   margin-left: 250px;
 }

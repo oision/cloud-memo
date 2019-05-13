@@ -34,6 +34,6 @@ export default {
 
 <style scoped>
     .v-sidebar-menu {
-        position: relative;
+        margin-top: 56px;
     }
 </style>
