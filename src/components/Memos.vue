@@ -1,6 +1,5 @@
 <template>
   <div>
-      memos
   </div>
 </template>
 

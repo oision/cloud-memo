@@ -62,4 +62,8 @@ export default {
     .v-sidebar-menu>.vsm-list {
         border-right: 1px solid #eee;
     }
+    .v-sidebar-menu.white-theme.vsm-default .vsm-item.first-item.open-item>.vsm-link {
+        color: #fff;
+        background-color: #48a2b8;
+    }
 </style>
