@@ -55,8 +55,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
     .v-sidebar-menu {
         margin-top: 56px;
+    }
+    .v-sidebar-menu>.vsm-list {
+        border-right: 1px solid #eee;
     }
 </style>
