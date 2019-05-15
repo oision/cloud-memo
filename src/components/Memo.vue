@@ -40,8 +40,12 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 
+import Vue from 'vue'
 import { quillEditor } from 'vue-quill-editor'
 import { mapState } from 'vuex'
+import { uuid } from 'vue-uuid'
+
+Vue.use(uuid);
 
 export default {
   name: 'Memo',
@@ -69,6 +73,13 @@ export default {
         this.$store.dispatch('memos/fetchMemo', this.$route.params.id).catch((e) => {
           console.log(e)
         })
+      } else {
+        const memo = {
+          id: uuid.v4(),
+          title: '',
+          content: '',
+        }
+        this.$store.dispatch('memos/addMemo', memo)
       }
     },
     onClickPicture () {

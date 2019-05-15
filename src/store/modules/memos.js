@@ -52,9 +52,14 @@ const actions = {
                 break
             }
         }
-        console.log(memos)
         commit('setMemos', memos)
         //localStorage.setItem('memos', memos)
+    },
+    async addMemo ({ commit }, memo) {
+        let memos = state.memos
+        memos.push(memo)
+        commit('setMemos', memos)
+        commit('setCurrentMemo', memo)
     },
 }
 
