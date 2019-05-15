@@ -1,6 +1,6 @@
 <template>
   <div>
-    <quill-editor v-model="text" :options="editorOpt">
+    <quill-editor v-model="memo.content" :options="editorOpt" @change="onEditorChange($event)">
       <div id="toolbar" slot="toolbar">
         <button class="ql-bold">Bold</button>
         <button class="ql-italic"></button>
@@ -41,6 +41,7 @@ import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 
 import { quillEditor } from 'vue-quill-editor'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Memo',
@@ -48,20 +49,40 @@ export default {
       quillEditor
   },
   data () {
-      return {
-        text: '',
-        editorOpt: {
-          modules: {
-            toolbar: '#toolbar'
-          }
-        },
-      }
+    return {
+      editorOpt: {
+        modules: {
+          toolbar: '#toolbar'
+        }
+      },
+      isNew: false,
+      title: '',
+    }
   },
+  computed: mapState({
+    memo: state => state.memos.currentMemo,
+  }),
   methods: {
     init () {
+      if (typeof this.$route.params.id !== "undefined") {
+        this.isNew = false
+        this.$store.dispatch('memos/fetchMemo', this.$route.params.id).catch((e) => {
+          console.log(e)
+        })
+      }
     },
     onClickPicture () {
-    }
+    },
+    onEditorChange({ quill, html, text }) {
+      //setTimeout(this.updateMemo, 5000)
+      this.memo.title = text.slice(0, 8)
+      this.updateMemo()
+    },
+    updateMemo () {
+      this.$store.dispatch('memos/updateMemo').catch((e) => {
+        console.log(e)
+      })
+    },
   },
   created () {
       this.init()

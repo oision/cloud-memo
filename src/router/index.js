@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Memo from '@/components/Memo'
 import Memos from '@/components/Memos'
 
@@ -15,8 +14,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
+      name: '',
+      component: Memos,
     },
     {
       path: '/memos',
@@ -31,6 +30,10 @@ export default new Router({
         },
         {
           path: 'new',
+          component: Memo,
+        },
+        {
+          path: ':id',
           component: Memo,
         },
       ]
