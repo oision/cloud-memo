@@ -76,7 +76,7 @@ export default {
       } else {
         const memo = {
           id: uuid.v4(),
-          title: '',
+          title: '新規メモ',
           content: '',
         }
         this.$store.dispatch('memos/addMemo', memo)
@@ -86,7 +86,7 @@ export default {
     },
     onEditorChange({ quill, html, text }) {
       //setTimeout(this.updateMemo, 5000)
-      this.memo.title = text.slice(0, 8)
+      this.memo.title = text.slice(0, 8).replace(/\r?\n/g, '')
       this.updateMemo()
     },
     updateMemo () {

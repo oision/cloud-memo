@@ -1,16 +1,5 @@
 const state = {
-    memos: [
-        {
-            id: "a1",
-            title: "1234",
-            content: "1234567",
-        },
-        {
-            id: "a2",
-            title: "abcd",
-            content: "abcd",
-        },
-    ],
+    memos: [],
     currentMemo: {},
 }
 
@@ -18,20 +7,20 @@ const getters = {}
 
 const actions = {
     async fetchMemos ({ commit }) {
-        return
-        const memos = localStorage.getItem("memos")
-        if (memos === undefined || memos === null) {
+        const memosString = localStorage.getItem("memos")
+        if (memosString === undefined || memosString === null) {
             return
         }
+        const memos = JSON.parse(memosString)
         commit('setMemos', memos)
     },
     async fetchMemo ({ commit }, id) {
-        //const memos = localStorage.getItem("memos")
-        const memos = state.memos
-        if (memos === undefined || memos === null) {
-            //return
+        const memosString = localStorage.getItem("memos")
+        if (memosString === undefined || memosString === null) {
+            return
         }
-        //commit('setMemos', memos)
+        const memos = JSON.parse(memosString)
+        commit('setMemos', memos)
 
         const memo = memos.find(tmp => tmp.id === id)
         if (memo === undefined || memo === null) {
@@ -53,7 +42,7 @@ const actions = {
             }
         }
         commit('setMemos', memos)
-        //localStorage.setItem('memos', memos)
+        localStorage.setItem('memos', JSON.stringify(memos))
     },
     async addMemo ({ commit }, memo) {
         let memos = state.memos

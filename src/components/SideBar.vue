@@ -46,11 +46,11 @@ export default {
       }
   }),
   methods: {
-      created () {
-          this.$store.dispatch('memos/fetchMemos').catch((e) => {
-              console.log(e)
-          })
-      },
+  },
+  created () {
+      this.$store.dispatch('memos/fetchMemos').catch((e) => {
+          console.log(e)
+      })
   },
 }
 </script>
