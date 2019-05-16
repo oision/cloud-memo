@@ -29,7 +29,8 @@
 
         <select class="ql-align"><option selected="selected"></option><option value="center"></option><option value="right"></option><option value="justify"></option></select>
 
-        <button @click="onClickPicture"><i class="icon-picture"></i></button>
+        <button class="float-md-right" @click="onClickPicture"><i class="fas fa-trash"></i></button>
+        <button class="float-md-right" @click="onClickPicture"><i class="fas fa-share-alt"></i></button>
       </div>
     </quill-editor>
   </div>
@@ -86,7 +87,7 @@ export default {
     },
     onEditorChange({ quill, html, text }) {
       //setTimeout(this.updateMemo, 5000)
-      this.memo.title = text.slice(0, 8).replace(/\r?\n/g, '')
+      this.memo.title = text.slice(0, 12).replace(/\r?\n/g, '')
       this.updateMemo()
     },
     updateMemo () {
